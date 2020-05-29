@@ -261,6 +261,8 @@ stemming_words <- function(text = text){
   text <- gsub("☆", "", text)
   text <- gsub("┃", "", text)
   text <- gsub("[[:digit:]]", " ", text)
+  text <- gsub("[a-z]", " ", text)
+  text <- gsub("[A-Z]", " ", text)
   return(text)
 }
 
@@ -279,7 +281,7 @@ words <- function(doc){
 }
 ########################################################################################################################################
 
-SNA_dtm <- function(dtm = dtm, keyword = keyword){
+SNA_dtm <- function(dtm = dtm){
   library(igraph)
   dtmx <- as.matrix(dtm)
   # change it to a Boolean matrix
@@ -319,11 +321,10 @@ SNA_dtm <- function(dtm = dtm, keyword = keyword){
   setorder(aa, -'연결중심성')
   # save plot and output data
   # save plot and output data
-  imagedir <- paste("X:/2020년 프로젝트/06.인천광역시_서구/Script/result/", substr(Sys.Date(), 1, 4), sep="")
+  imagedir <- paste("X:/2020년 프로젝트/06.인천광역시_서구/Script/result/인천뉴스/", substr(Sys.Date(), 1, 4), sep="")
   imagedir <- paste(imagedir, substr(Sys.Date(), 6, 7), sep="_")
   imagedir <- paste(imagedir, substr(Sys.Date(), 9, 10), sep="_")
   imagedir <- paste(imagedir, "SNA", sep="_")
-  imagedir <- paste(imagedir, keyword, sep="_")
   imagename <- paste(imagedir, ".jpeg", sep="")
   dev.copy(jpeg, filename = imagename)
   dev.off()

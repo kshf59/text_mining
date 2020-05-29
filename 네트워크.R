@@ -33,6 +33,7 @@ drawNetworkmap <- function(dtmObj, title, sparse, corr, prob, link, cex) {
     label.size = cex,
     node.color = 'mode',
     palette = nodeColors,
+    size = 20,
     node.size = sna::degree(dat = netTerms),
     edge.size = 'edgeSize',
     legend.position = 'None',) + 

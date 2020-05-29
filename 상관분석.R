@@ -45,7 +45,7 @@ checkAssocs <- function(dtm, keyword, corr = 0.01) {
   }
   
   # 행 기준으로 붙여서 dtmObj를 생성
-  dtmObj <- rbind(createDtmObj(dtm = dtm, workGb = '매립지'))
+  dtmObj <- rbind(createDtmObj(dtm = dtm, workGb = '보도자료'))
   
   # 막대그래프 리스트를 생성합니다. 
   plots <- lapply(X = split(x = dtmObj, f = dtmObj$workGb), FUN = function(x) {
